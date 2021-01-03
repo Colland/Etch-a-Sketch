@@ -1,6 +1,7 @@
 #pageWrapper {
     display: flex;
     flex-direction: column;
+    font-family: monospace, sans-serif;
 }
 header {
     display: flex;
@@ -14,6 +15,51 @@ header h1 {
 main {
     display: flex;
     justify-content: center;
+}
+
+#menuBar {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+#primaryColor {
+    justify-content: space-around;
+}
+
+#backgroundColor {
+    justify-content: space-around;
+}
+
+#backgroundColor p {
+    width: 105px;
+    text-align: center;
+}
+
+input[type = "color"] {
+    width: 60px;
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+input::-webkit-color-swatch {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input::-moz-color-swatch {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 #slider {
@@ -66,7 +112,7 @@ input[type = "range"]::-webkit-slider-runnable-track {
 }
 
 #gridContainer div {
-    background-color: white;
+    background-color: inherit;
     border-top: 1px solid black;
     border-right: 1px solid black;
 }

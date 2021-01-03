@@ -5,11 +5,30 @@ const grid = document.querySelector("#gridContainer");
 const slider = document.querySelector("input[type = \"range\"]");
 const sliderText = document.querySelectorAll("#sliderSize");
 const body = document.querySelector("body");
+const primaryColor = document.querySelector("#primaryColor input");
+const backgroundColor = document.querySelector("#backgroundColor input");
 
 slider.addEventListener("mousemove", updateSliderText);
 slider.addEventListener("change", updateSlider);
-body.addEventListener("mousedown", () => isClicked = true);
-body.addEventListener("click", () => isClicked = false);
+body.addEventListener("mousedown", function(e){
+    isClicked = true;
+    if(e.target.parentNode === grid)
+    {
+        e.target.setAttribute("data-painted", "true");
+        e.target.style.backgroundColor = primaryColor.value;
+    }
+});
+body.addEventListener("mouseup", () => isClicked = false);
+
+backgroundColor.addEventListener("input", function() { 
+    document.querySelectorAll("#gridContainer div").forEach(function(div)
+    {
+        if(div.dataset.painted === "false")
+        {
+            div.style.backgroundColor = backgroundColor.value;
+        }
+    })
+});
 
 populateGrid(32);
 
@@ -20,8 +39,9 @@ function populateGrid(size)
         for(let j = 0; j < size; j++)
         {
             let newDiv = document.createElement("div");
+            newDiv.style.backgroundColor = backgroundColor.value;
+            newDiv.setAttribute("data-painted", "false");
             newDiv.addEventListener("mouseover", changeColor);
-            newDiv.setAttribute("draggable", "false");
             grid.appendChild(newDiv);
         }
     }
@@ -33,7 +53,8 @@ function changeColor(e)
 {
     if(isClicked)
     {
-        e.target.style.backgroundColor = "red";
+        e.target.setAttribute("data-painted", "true");
+        e.target.style.backgroundColor = primaryColor.value;
     }
 }
 
