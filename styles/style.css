@@ -1,3 +1,4 @@
+
 #pageWrapper {
     display: flex;
     flex-direction: column;
@@ -6,37 +7,53 @@
 header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 130px;
 }
 
 header h1 {
     font-size: 40px;
+    text-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 main {
     display: flex;
     justify-content: center;
+    margin: 0 200px 0 0;
 }
 
 #menuBar {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+#menuWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 280px;
+    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    margin-right: 10px;
 }
 
 .menuItem {
     display: flex;
     align-items: center;
     font-size: 16px;
-}
-
-#primaryColor {
     justify-content: space-around;
 }
 
-#backgroundColor {
+#colorPickers {
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    height: 90px;
 }
 
-#backgroundColor p {
+#bColorText {
     width: 105px;
     text-align: center;
 }
@@ -63,19 +80,23 @@ input::-moz-color-swatch {
 }
 
 #slider {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 200px;
+}
+
+#sliderText {
+    margin-top: 20px;
 }
 
 input[type = "range"] {
     -webkit-appearance: none;
-    width: 100%;
+    width: 80%;
     background: transparent;
-}
-
-input[type = "range"]:focus {
     outline: none;
-  }
+}
 
 input[type = "range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -90,7 +111,7 @@ input[type = "range"]::-webkit-slider-thumb {
   }
 
 input[type = "range"]::-webkit-slider-runnable-track {
-    width: 100%;
+    width: 50%;
     height: 8.4px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
@@ -99,8 +120,26 @@ input[type = "range"]::-webkit-slider-runnable-track {
     border: 0.2px solid #010101;
   }
 
-#sliderText {
-    margin-top: 30px;
+.button {
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    outline: none;
+    font-family: monospace, sans-serif;
+    font-size: 16px;
+    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#buttons {
+    flex-direction: column;
+    height: 70px;
+}
+
+.button:active {
+    box-shadow: 0 0 0 #000000, inset 1.5px 1.5px 1.5px #000000;
+    transform: translate(2px, 2px);
 }
 
 #gridContainer {
@@ -115,4 +154,9 @@ input[type = "range"]::-webkit-slider-runnable-track {
     background-color: inherit;
     border-top: 1px solid black;
     border-right: 1px solid black;
+}
+
+#gridBorder {
+    border: 1px solid black;
+    box-shadow: 1px 1px 6px #000000, 0px 0px 6px #0d0d0d;
 }
